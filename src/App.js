@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import backgroundimg from './oktober.png';
 import './App.css';
 import MenuList from './MenuList';
 import OrderList from './OrderList';
@@ -13,7 +14,6 @@ class App extends Component{
         order: [],
         selection: "",
         total: [],
-        itemCount: [],
 
     };
     this.menuBarClick = this.menuBarClick.bind(this);
@@ -23,24 +23,65 @@ class App extends Component{
 
 componentDidMount(){
         const items = [{
-        itemName: 'Appetizer 1',
-        desc: "A delicious appetizer",
-        price: 11,
+        itemName: "Chips & 'Kraut",
+        desc: "Fresh tortilla chips served with sharp, cabbagy saurkraut",
+        price: 7,
         type: "Apps",
+        count: 0,
       },
       {
-        itemName: 'Entree 1',
-        desc: "The first of many entrees",
-        price: 12,
-        type: "Entrees",
+        itemName: 'Beer-battered refried beans',
+        desc: "Globs of squishy refritos covered in schwartzbier batter and deep-fried until slightly more brown",
+        price: 7,
+        type: "Apps",
+        count: 0,
       },
       {
-        itemName: 'Dessert 1',
-        desc: "A sweet confection",
+        itemName: 'Squashamole',
+        desc: "Our signature dipping sauce - tomatoes, red onions, garlic and lime juice mixed with a wet paste of stewed winter squash. Delicious!",
         price: 6,
-        type: "Desserts",
+        type: "Apps",
+        count: 0,
 
-      }
+      },
+
+      {
+      itemName: "Bavarian Nachos",
+      desc: "Crispy tortilla chips piled high with avocado and Black Forest ham",
+      price: 14,
+      type: "Entrees",
+      count: 0,
+      },
+      {
+      itemName: 'Pork schnitzel fajitas',
+      desc: "Battered and fried strips of wild boar served with soft tortillas and der fixins",
+      price: 15,
+      type: "Entrees",
+      count: 0,
+      },
+      {
+      itemName: 'Bratwurst Rancheros',
+      desc: "Smoky bratwurst links smothered in mole and topped with fried eggs",
+      price: 12,
+      type: "Entrees",
+      count: 0,
+
+    },
+
+    {
+    itemName: "Tres Leches",
+    desc: "Three glasses of milk",
+    price: 6,
+    type: "Desserts",
+    count: 0,
+    },
+    {
+    itemName: 'Ham Churros',
+    desc: "Sweet pastry dough deep fried, rolled in cinnamon sugar, and topped with chunks of stewed ham",
+    price: 7,
+    type: "Desserts",
+    count: 0,
+    }
     ];
 
     this.setState({items});
@@ -53,8 +94,9 @@ componentDidMount(){
 
 menuClick(item) {
   const order = [...this.state.order, item];
-  const count = [...this.state.itemCount, item.itemName];
-  this.setState({order: order, total: [...this.state.total, item.price], itemCount: [...this.state.itemCount, item.itemName]});
+  this.setState({order: order, total: [...this.state.total, item.price]});
+  // console.log(order[order.indexOf(item)]);
+  const count = order[order.indexOf(item)].count +=1;
 
 
 
@@ -65,7 +107,7 @@ this.setState({selection: item});
 
 deleteItem(item){
   const order = [...this.state.order];
-const total = [...this.state.total];
+  const total = [...this.state.total];
   order.splice(order.indexOf(item), 1);
   total.splice(order.indexOf(item), 1);
   this.setState({order: order, total: total});
@@ -74,13 +116,14 @@ const total = [...this.state.total];
 
   render() {
  const selection = this.state.selection;
- const countNo = this.state.itemCount.length;
  const reducer = (a, b) => a+b;
  const totalPrice = this.state.total.reduce(reducer, 0);
 
 
   return (
+<div id="outerBody">
     <div className="container">
+    <div id="titleCard"><h1>Hola! Wilkommen to El Nachohaus!</h1></div>
          <div className="">
          <MenuBar menuBarClick={this.menuBarClick}/>
          </div>
@@ -90,9 +133,9 @@ const total = [...this.state.total];
           </div>
       <div className="col-1" id="emptySpace"></div>
            <div className="col-4" id="orderCol">
-           <OrderList order={this.state.order} deleteItem={this.deleteItem} countNo={this.state.itemCount}/>
-          Order Total: ${totalPrice}
+           <OrderList order={this.state.order} deleteItem={this.deleteItem} totalPrice={totalPrice}/>
            </div>
+      </div>
       </div>
       </div>
   );

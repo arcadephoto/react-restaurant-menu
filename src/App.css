@@ -1,10 +1,18 @@
+#outerBody{
+  height: 1200px;
+  background-image: url('oktober.png');
+background-size: 1400px;
+background-repeat: no-repeat;
+}
 .App {
   text-align: center;
 }
 .container{
+  /* background-image: url('oktober.png'); */
+  width: 100vw;
   text-align: center;
-  background-color: lightgray;
-  height: 700px;
+  height: 800px;
+  box-shadow: 10px 10px 10px darkgray;
 }
 li {
   list-style: none;
@@ -13,19 +21,55 @@ li {
   line-height: normal;
   text-align: left;
 }
+.menuItem.card{
+  box-shadow: 5px 5px 5px darkgray;
+  border: 0;
+  background-color: transparent;
+}
+.menuItem button {
+  background-color: green;
+  width: 25%;
+}
+
+
 #topNav{
+  box-shadow: 5px 5px 5px darkgray;
   display: flex;
   text-align: left;
   font-size: large;
   font-weight: bold;
+  font-family: Tahoma, Helvetica, sans-serif;
 }
 #topNav p{
   padding: 0 10px 0 10px;
 }
 
 #orderCol{
+  box-shadow: 5px 5px 5px darkgray;
+  height: 600px;
+  background-color: #FFFAF0;
+  margin-top: 260px;
+  border-radius: 5px;
 }
 
 .orderItem{
+  background-color: #FFFAF0;
   line-height: normal;
+}
+.orderItem.card{
+  background-color: #FFFAF0;
+  border: 0;
+}
+#orderTotal{
+  transform:translateX(85px);
+  position: absolute;
+  bottom: 35px;
+  font-size: x-large;
+  font-weight: bold;
+}
+#nameButton1{
+  bottom: 5px;
+  text-align: center;
+  width: 100%;
+  position: absolute;
 }

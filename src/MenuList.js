@@ -14,15 +14,19 @@ class MenuList extends Component{
 
 
         render(){
+
          const items = this.props.items
          .filter(item => item.type === this.props.selection)
          .map((item, index) => (
              <li key={index} className="card menuItem">
-             <h4 className="itemName" onClick={()=> this.props.menuClick(item)}>{item.itemName}</h4>
+             <h5 className="itemName">{item.itemName}</h5>
              <p>{item.desc}</p>
              <p>${item.price}</p>
+             <button onClick={()=> this.props.menuClick(item)}>Add to Order!</button>
              </li>
-     ))
+     )
+   )
+
 
        return (
 
