@@ -3,6 +3,8 @@
 }
 .container{
   text-align: center;
+  background-color: lightgray;
+  height: 700px;
 }
 li {
   list-style: none;
@@ -12,10 +14,18 @@ li {
   text-align: left;
 }
 #topNav{
+  display: flex;
   text-align: left;
   font-size: large;
   font-weight: bold;
 }
-#orderCol{
+#topNav p{
+  padding: 0 10px 0 10px;
+}
 
+#orderCol{
+}
+
+.orderItem{
+  line-height: normal;
 }

@@ -30,7 +30,7 @@ class MenuBar extends Component{
 
 
     return(
-      <nav id="topNav" className="navbar navbar-light bg-light">
+      <nav id="topNav" className="bg-light">
       {menuBar}</nav>
     );
   }

@@ -9,10 +9,12 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      items: [],
+        items: [],
         order: [],
         selection: "",
         total: [],
+        itemCount: [],
+
     };
     this.menuBarClick = this.menuBarClick.bind(this);
     this.menuClick = this.menuClick.bind(this);
@@ -51,8 +53,9 @@ componentDidMount(){
 
 menuClick(item) {
   const order = [...this.state.order, item];
-  this.setState({order: order, total: [...this.state.total, item.price]});
-  console.count(JSON.stringify(item));
+  const count = [...this.state.itemCount, item.itemName];
+  this.setState({order: order, total: [...this.state.total, item.price], itemCount: [...this.state.itemCount, item.itemName]});
+
 
 
 }
@@ -66,13 +69,12 @@ const total = [...this.state.total];
   order.splice(order.indexOf(item), 1);
   total.splice(order.indexOf(item), 1);
   this.setState({order: order, total: total});
-  console.log(this.state.total);
 
 }
 
   render() {
  const selection = this.state.selection;
-
+ const countNo = this.state.itemCount.length;
  const reducer = (a, b) => a+b;
  const totalPrice = this.state.total.reduce(reducer, 0);
 
@@ -83,13 +85,13 @@ const total = [...this.state.total];
          <MenuBar menuBarClick={this.menuBarClick}/>
          </div>
   <div className="row">
-         <div className="col-7" id="emptySpace">
+         <div className="col-7" id="menuSpace">
           <MenuList items={this.state.items} selection={this.state.selection} menuClick={this.menuClick}/>
           </div>
-      <div className="col-1" id="orderCol"></div>
-           <div className="col-4">
-           <OrderList order={this.state.order} deleteItem={this.deleteItem}/>
-          Order Total: {totalPrice}
+      <div className="col-1" id="emptySpace"></div>
+           <div className="col-4" id="orderCol">
+           <OrderList order={this.state.order} deleteItem={this.deleteItem} countNo={this.state.itemCount}/>
+          Order Total: ${totalPrice}
            </div>
       </div>
       </div>

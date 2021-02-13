@@ -18,11 +18,11 @@ this.setState({orders});
 
 
   render(){
+
     const orders = this.props.order.map((item, index) => (
-        <li key={index} className=" card orderItem">
-        <p>{item.itemName}</p>
-        <p>${item.price}</p>
-        <button onClick={() => this.props.deleteItem(item)}>Delete</button>
+        <li key={index} className="card orderItem">
+        <p>{item.itemName} - ${item.price}</p>
+        <p><button>Edit</button><button onClick={() => this.props.deleteItem(item)}>Delete</button></p>
         </li>
 ))
 
