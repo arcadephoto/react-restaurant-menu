@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import backgroundimg from './oktober.png';
+import titleimg from './title4.png';
 import './App.css';
 import MenuList from './MenuList';
 import OrderList from './OrderList';
@@ -123,7 +124,7 @@ deleteItem(item){
   return (
 <div id="outerBody">
     <div className="container">
-    <div id="titleCard"><h1>Hola! Wilkommen to El Nachohaus!</h1></div>
+    <div id="titleCard"><img src={titleimg}/></div>
          <div className="">
          <MenuBar menuBarClick={this.menuBarClick}/>
          </div>
