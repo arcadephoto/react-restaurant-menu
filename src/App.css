@@ -18,8 +18,10 @@ li {
   list-style: none;
 }
 .menuItem{
+  margin-top: 20px;
   line-height: normal;
   text-align: left;
+  animation: slide-left 1.5s;
 }
 .menuItem.card{
   box-shadow: 5px 5px 5px darkgray;
@@ -27,8 +29,9 @@ li {
   background-color: transparent;
 }
 .menuItem button {
+  box-shadow: 3px 3px 3px darkgray;
   background-color: green;
-  width: 25%;
+  width: 20%;
 }
 
 
@@ -45,20 +48,36 @@ li {
 }
 
 #orderCol{
+  text-align: left;
   box-shadow: 5px 5px 5px darkgray;
   height: 600px;
   background-color: #FFFAF0;
   margin-top: 260px;
   border-radius: 5px;
+  animation: drop-in 1.5s;
 }
 
 .orderItem{
   background-color: #FFFAF0;
   line-height: normal;
 }
+.orderItem p{
+  margin: 2px;
+}
 .orderItem.card{
   background-color: #FFFAF0;
   border: 0;
+  font-weight: bold;
+  letter-spacing: 1px;
+  height: 85px;
+}
+
+.hiddenitem{
+  visibility: hidden;
+}
+.orderItem button {
+  margin: 2px;
+  padding: 2px;
 }
 #orderTotal{
   transform:translateX(85px);
@@ -72,4 +91,32 @@ li {
   text-align: center;
   width: 100%;
   position: absolute;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+  60% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes drop-in {
+  0% {
+    transform: translateY(-1000px);
+    opacity: 0;
+  }
+  60% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }

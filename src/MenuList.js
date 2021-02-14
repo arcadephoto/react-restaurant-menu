@@ -22,7 +22,7 @@ class MenuList extends Component{
              <h5 className="itemName">{item.itemName}</h5>
              <p>{item.desc}</p>
              <p>${item.price}</p>
-             <button onClick={()=> this.props.menuClick(item)}>Add to Order!</button>
+             <button className="btn" onClick={()=> this.props.menuClick(item)}>Add to Order!</button>
              </li>
      )
    )

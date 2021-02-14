@@ -39,14 +39,17 @@ handleChange(event){
         <li key={index} className="card orderItem">
         <p>{item.itemName} - ${item.price}</p>
         <p>{item.count}</p>
-        <p><button>Edit</button><button onClick={() => this.props.deleteItem(item)}>Delete</button></p>
+        <p><button className="btn">Edit</button><button className="btn" onClick={() => this.props.deleteItem(item)}>Delete</button></p>
         </li>
 )
 )
+
+
+
    const nameButton = <form onSubmit={this.submitOrder}>
    <label htmlFor="nameButton"></label>
    <input type="text" placeholder="What's your name?" id="nameButton" name="nameInput" value={this.state.nameInput} onChange={this.handleChange}/>
-   <button type="submit">Submit Your Order!</button>
+   <button className="btn genbtn" type="submit">Submit Your Order!</button>
    </form>
 
    const totalPrice = this.props.totalPrice;
@@ -55,7 +58,6 @@ handleChange(event){
       <div id="orderList">
       YOUR ORDER:
       {orders}
-
       <div id="orderTotal">Order Total: ${totalPrice}</div>
       <div id="nameButton1">{nameButton}</div>
       </div>

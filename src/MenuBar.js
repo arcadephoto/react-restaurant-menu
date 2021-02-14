@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import apps from './apps.png'
+
 
 class MenuBar extends Component{
   constructor(props){
@@ -10,7 +12,7 @@ class MenuBar extends Component{
 
   componentDidMount(){
         const items = [
-        "Apps", "Entrees", "Desserts"
+        "apps", "entrees", "desserts"
       ];
 
     this.setState({items});
@@ -24,8 +26,9 @@ class MenuBar extends Component{
 
   render(){
     const menuBar = this.state.items.map((item, index) => (
-        <p key={index} onClick={()=> this.props.menuBarClick(item)}> {item} </p>
+        <p key={index} onClick={()=> this.props.menuBarClick(item)}>{item}</p>
     ))
+
 
 
 

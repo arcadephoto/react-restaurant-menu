@@ -27,21 +27,21 @@ componentDidMount(){
         itemName: "Chips & 'Kraut",
         desc: "Fresh tortilla chips served with sharp, cabbagy saurkraut",
         price: 7,
-        type: "Apps",
+        type: "apps",
         count: 0,
       },
       {
         itemName: 'Beer-battered refried beans',
         desc: "Globs of squishy refritos covered in schwartzbier batter and deep-fried until slightly more brown",
         price: 7,
-        type: "Apps",
+        type: "apps",
         count: 0,
       },
       {
         itemName: 'Squashamole',
         desc: "Our signature dipping sauce - tomatoes, red onions, garlic and lime juice mixed with a wet paste of stewed winter squash. Delicious!",
         price: 6,
-        type: "Apps",
+        type: "apps",
         count: 0,
 
       },
@@ -50,21 +50,21 @@ componentDidMount(){
       itemName: "Bavarian Nachos",
       desc: "Crispy tortilla chips piled high with avocado and Black Forest ham",
       price: 14,
-      type: "Entrees",
+      type: "entrees",
       count: 0,
       },
       {
       itemName: 'Pork schnitzel fajitas',
       desc: "Battered and fried strips of wild boar served with soft tortillas and der fixins",
       price: 15,
-      type: "Entrees",
+      type: "entrees",
       count: 0,
       },
       {
       itemName: 'Bratwurst Rancheros',
       desc: "Smoky bratwurst links smothered in mole and topped with fried eggs",
       price: 12,
-      type: "Entrees",
+      type: "entrees",
       count: 0,
 
     },
@@ -73,14 +73,14 @@ componentDidMount(){
     itemName: "Tres Leches",
     desc: "Three glasses of milk",
     price: 6,
-    type: "Desserts",
+    type: "desserts",
     count: 0,
     },
     {
     itemName: 'Ham Churros',
     desc: "Sweet pastry dough deep fried, rolled in cinnamon sugar, and topped with chunks of stewed ham",
     price: 7,
-    type: "Desserts",
+    type: "desserts",
     count: 0,
     }
     ];
@@ -124,7 +124,8 @@ deleteItem(item){
   return (
 <div id="outerBody">
     <div className="container">
-    <div id="titleCard"><img src={titleimg}/></div>
+    <div id="titleCard"><img src={titleimg}/>
+    <h3>TEX-MEX WITH A BAVARIAN PRETZEL TWIST</h3></div>
          <div className="">
          <MenuBar menuBarClick={this.menuBarClick}/>
          </div>
