@@ -6,18 +6,12 @@ constructor (props){
   super(props);
   this.state = {
     nameInput: "",
+    order: [],
   }
 this.submitOrder = this.submitOrder.bind(this);
 this.handleChange = this.handleChange.bind(this);
 
 }
-
-
-componentDidMount(){
-    const orders = this.props.order;
-
-this.setState({orders});
-  }
 
 submitOrder(){
   const orders = this.props.order;
@@ -32,16 +26,33 @@ handleChange(event){
   this.setState({[event.target.name]: event.target.value});
 }
 
+componentDidMount(){
+}
+
+
 
   render(){
 
-    const orders = this.props.order.map((item, index) => (
-        <li key={index} className="card orderItem">
-        <p>{item.itemName} - ${item.price}</p>
-        <p>{item.count}</p>
-        <p><button className="btn">Edit</button><button className="btn" onClick={() => this.props.deleteItem(item)}>Delete</button></p>
-        </li>
+    let newItem = this.props.newItem
+
+
+
+
+
+    const orders = this.props.order
+    .map((item, index) => item.count === 1 ? (
+            <div key={index} className="card orderItem">
+            <p>{item.itemName}</p>
+            <p>${item.price}/each</p>
+            <p><button className="btn" onClick={()=>this.props.addItem(item, index)}>Add!</button><button className="btn" onClick={() => this.props.deleteItem(item)}>Delete</button></p>
+            </div>
 )
+:           <div key={index} className="card orderItem">
+            <p>{item.itemName}</p>
+            <p>How many? {item.count}</p>
+            <p>${item.price}/each Total: ${item.price * item.count}</p>
+            <p><button className="btn" onClick={()=>this.props.addItem(item, index)}>Add!</button><button className="btn" onClick={() => this.props.deleteItem(item)}>Delete</button></p>
+            </div>
 )
 
 
@@ -56,7 +67,7 @@ handleChange(event){
 
     return(
       <div id="orderList">
-      YOUR ORDER:
+      <h5>YOUR ORDER:</h5>
       {orders}
       <div id="orderTotal">Order Total: ${totalPrice}</div>
       <div id="nameButton1">{nameButton}</div>

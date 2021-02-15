@@ -8,7 +8,6 @@ background-repeat: no-repeat;
   text-align: center;
 }
 .container{
-  /* background-image: url('oktober.png'); */
   width: 100vw;
   text-align: center;
   height: 800px;
@@ -19,14 +18,17 @@ li {
 }
 .menuItem{
   margin-top: 20px;
+  padding: 10px 0 10px 10px;
   line-height: normal;
   text-align: left;
   animation: slide-left 1.5s;
 }
 .menuItem.card{
   box-shadow: 5px 5px 5px darkgray;
-  border: 0;
+  border-left: 2px solid darkred;
+  border-top: 2px solid darkred;
   background-color: transparent;
+
 }
 .menuItem button {
   box-shadow: 3px 3px 3px darkgray;
@@ -42,19 +44,26 @@ li {
   font-size: large;
   font-weight: bold;
   font-family: Tahoma, Helvetica, sans-serif;
+  background-image: linear-gradient(to left, green, white);
 }
 #topNav p{
-  padding: 0 10px 0 10px;
+  padding: 10px 10px 0 10px;
+  font-size: 30px;
+  background: -webkit-linear-gradient(red, orange);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #orderCol{
+  border: 2px solid darkred;
   text-align: left;
   box-shadow: 5px 5px 5px darkgray;
   height: 600px;
   background-color: #FFFAF0;
-  margin-top: 260px;
+  margin-top: 150px;
   border-radius: 5px;
   animation: drop-in 1.5s;
+  background-image: linear-gradient(white, green);
 }
 
 .orderItem{
@@ -65,26 +74,32 @@ li {
   margin: 2px;
 }
 .orderItem.card{
-  background-color: #FFFAF0;
+  background-color: transparent;
   border: 0;
   font-weight: bold;
   letter-spacing: 1px;
-  height: 85px;
+  height: 110px;
+  margin-bottom: 5px;
 }
 
-.hiddenitem{
-  visibility: hidden;
-}
 .orderItem button {
   margin: 2px;
+  margin-bottom: 5px;
   padding: 2px;
 }
+#orderList h5{
+  margin: 10px 5px 10px 5px;
+  border-bottom: 2px solid black;
+
+}
+
 #orderTotal{
   transform:translateX(85px);
   position: absolute;
-  bottom: 35px;
+  bottom: 40px;
   font-size: x-large;
   font-weight: bold;
+
 }
 #nameButton1{
   bottom: 5px;

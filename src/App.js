@@ -15,11 +15,13 @@ class App extends Component{
         order: [],
         selection: "",
         total: [],
+        newItem:{},
 
     };
     this.menuBarClick = this.menuBarClick.bind(this);
     this.menuClick = this.menuClick.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
+    this.addItem = this.addItem.bind(this);
 };
 
 componentDidMount(){
@@ -91,12 +93,16 @@ componentDidMount(){
 
 
 
-
+addItem(item, index){
+  const order = [...this.state.order];
+  const count = order[index].count ++;
+  this.setState({order: order});
+}
 
 menuClick(item) {
+  const newItem = item;
   const order = [...this.state.order, item];
-  this.setState({order: order, total: [...this.state.total, item.price]});
-  // console.log(order[order.indexOf(item)]);
+  this.setState({order: order, total: [...this.state.total, item.price], newItem: item});
   const count = order[order.indexOf(item)].count +=1;
 
 
@@ -119,6 +125,7 @@ deleteItem(item){
  const selection = this.state.selection;
  const reducer = (a, b) => a+b;
  const totalPrice = this.state.total.reduce(reducer, 0);
+ const newItem = this.state.newItem;
 
 
   return (
@@ -135,7 +142,7 @@ deleteItem(item){
           </div>
       <div className="col-1" id="emptySpace"></div>
            <div className="col-4" id="orderCol">
-           <OrderList order={this.state.order} deleteItem={this.deleteItem} totalPrice={totalPrice}/>
+           <OrderList addItem={this.addItem} order={this.state.order} deleteItem={this.deleteItem} totalPrice={totalPrice} newItem={this.state.newItem}/>
            </div>
       </div>
       </div>

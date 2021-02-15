@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import apps from './apps.png'
 
 
 class MenuBar extends Component{
