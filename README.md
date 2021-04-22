@@ -1,4 +1,4 @@
-##React Restaurant Menu##
+# React Restaurant Menu
 
 This site takes a wildly unlikely cuisine concept
 and furnishes with a menu and online ordering system.
